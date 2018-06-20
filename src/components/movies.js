@@ -31,35 +31,39 @@ class Movies extends React.Component {
       loading: !prevState.loading
     }))}
   
-    getMovies = () => {
-      console.log('getMovies function...')
-    request
-      .get(`${baseUrl}`)
-      .then(result => this.setState({loading:false,
-      movies:result.body}))
-      .catch(err => console.error(err))
-    } 
+    getMovies = (dispatchData) => {
+      // console.log('getMovies function...')
+      request
+    .get(`${baseUrl}/movies`)
+    .then(response => dispatchData(response.body))
+    .catch(err => alert(err))
+    }
+
+    dispatchData = (data) => {
+      this.setState({
+        loading: false,
+        movies: data
+      })
+      console.log('state after new data: ',this.state)
+    }
     componentDidMount() {
-      if (this.props.movies === null) {
-        this.getMovies()
+      if (this.state.movies === null) {
+        this.getMovies(this.dispatchData)
         console.log('Getting movies from API')}
       }
   
-  
+
+
   render() {
     return (
-      <div className="movies">
-        <header className="header">
-          <h1>Movies</h1>
-        </header>
+      <div className="App">
+        <h1>Movies</h1>
         <LoadingComponent busy={this.state.loading} />
         <button onClick={this.handleToggleClick}>
           {this.state.loading ? 'Hide' : 'Show'}
         </button>
-        {this.state.movies}
-        
       </div>
-    )
+    );
   }
 }
 
