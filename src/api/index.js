@@ -1,57 +1,39 @@
-const http = require('http')
+const express = require('express')
+const app = express()
 
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World!!!\n');
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+  next()
 })
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`)
-})
+// Setting up local API
+
+const hostname = '127.0.0.1'
+const port = 3000
+
+// Setting up links to endpoints on Drupal API
 
 const moviesApi = 'http://0.0.0.0:8080/api/movies'
+const musicApi = 'http://0.0.0.0:8080/api/music'
 
-http.get(moviesApi, (res) => {
-  const { statusCode } = res;
-  const contentType = res.headers['content-type'];
 
-  let error;
-  if (statusCode !== 200) {
-    error = new Error('Request Failed.\n' +
-                      `Status Code: ${statusCode}`);
-  } else if (!/^application\/json/.test(contentType)) {
-    error = new Error('Invalid content-type.\n' +
-                      `Expected application/json but received ${contentType}`);
-  }
-  if (error) {
-    console.error(error.message);
-    res.resume();
-    return;
-  }
+app.get('/movies', function(req, res) {
+  console.log('--> Call from React...')
+	// Comment out this line:
+  //res.send('respond with a resource');
 
-  res.setEncoding('utf8');
-  let rawData = '';
-  res.on('data', (chunk) => { rawData += chunk; });
-  res.on('end', () => {
-    try {
-      const parsedData = JSON.parse(rawData);
-      parsedData.map(value => {
-        console.log(value.body[0].processed + value.title[0].value)
-        // console.log(value.field_cover[0].url)
-        const bodyText = value.body[0].processed
-        const title = value.title[0].value
-        const coverUrl = value.field_cover[0].url
-        // console.log(typeof(bodyText))
-        return title, bodyText, coverUrl
-      })
-    } catch (e) {
-      console.error(e.message);
-    }
-  });
-}).on('error', (e) => {
-  console.error(`Got error: ${e.message}`);
+  // And insert something like this instead:
+  res.json([{
+  	id: 1,
+  	username: "samsepi0l"
+  }, {
+  	id: 2,
+  	username: "D0loresH4ze"
+  }]);
 });
+
+app.listen(port, () => console.log(`-> Express listening on port ${port}!`))
+
+
+
