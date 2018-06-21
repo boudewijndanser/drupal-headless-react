@@ -1,39 +1,29 @@
-const express = require('express')
-const app = express()
+var express = require('express'); 
+var bodyParser =  require('body-parser'); 
+
+var config = require('./config');
+var app = express();
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-  next()
-})
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    next()
+  })
 
-// Setting up local API
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 
-const hostname = '127.0.0.1'
-const port = 3000
+var api = require('./routes/controller')(app,express);
 
-// Setting up links to endpoints on Drupal API
+app.use('/api', api);
 
-const moviesApi = 'http://0.0.0.0:8080/api/movies'
-const musicApi = 'http://0.0.0.0:8080/api/music'
+app.listen(config.port,function(err){
 
+  if(err){
+    console.log("error");
+  }else{
+    console.log("server listening on port "+ config.port);   
+  }
 
-app.get('/movies', function(req, res) {
-  console.log('--> Call from React...')
-	// Comment out this line:
-  //res.send('respond with a resource');
-
-  // And insert something like this instead:
-  res.json([{
-  	id: 1,
-  	username: "samsepi0l"
-  }, {
-  	id: 2,
-  	username: "D0loresH4ze"
-  }]);
 });
-
-app.listen(port, () => console.log(`-> Express listening on port ${port}!`))
-
-
 
