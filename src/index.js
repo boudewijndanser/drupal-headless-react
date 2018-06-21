@@ -5,8 +5,11 @@ import registerServiceWorker from './registerServiceWorker'
 
 // Styling
 import './css/index.css'
+import './css/typography.css'
 
-// Pages
+// Pages + Nav
+import NavBar from './components/navBar'
+import Footer from './components/footer'
 import Home from './components/home'
 import Movies from './components/movies'
 import Music from './components/music'
@@ -14,12 +17,22 @@ import NotFound from './components/notFound'
 
 ReactDOM.render(
   <BrowserRouter>
-  <Switch>
-    <Route path="/" exact component={ Home } />
-    <Route path="/movies" exact component={ Movies } />
-    <Route path="/music" exact component={ Music } />
-    <Route component={ NotFound } />
-  </Switch>
+    <div className="wrapper">
+      <div className="nav">
+        <NavBar/>
+      </div>
+      <div className ="content">
+        <Switch>
+          <Route exact path="/" component={ Home } />
+          <Route path="/movies" component={ Movies } />
+          <Route path="/music" component={ Music } />
+          <Route component={ NotFound } />
+        </Switch>
+      </div>
+      <div className="footer">
+      <Footer/>
+      </div>
+    </div>
   </BrowserRouter>,
   document.getElementById('root')
 )
