@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin|Roboto+Condensed:400,700');
+
+html {
+  font-family: 'Cabin', sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+font-family: 'Roboto Condensed', sans-serif;
+font-size: 45px;
+}
+
+h2 {
+font-family: 'Roboto Condensed', sans-serif;
+font-size: 30px;
+}
+
+p {
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+}
