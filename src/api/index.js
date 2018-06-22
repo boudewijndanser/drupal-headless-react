@@ -1,8 +1,8 @@
-var express = require('express'); 
-var bodyParser =  require('body-parser'); 
+const express = require('express') 
+const bodyParser =  require('body-parser') 
 
-var config = require('./config');
-var app = express();
+const config = require('./config')
+const app = express()
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*")
@@ -10,20 +10,20 @@ app.use(function(req, res, next) {
     next()
   })
 
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.json())
 
-var api = require('./routes/controller')(app,express);
+const api = require('./routes/controller')(app,express)
 
-app.use('/api', api);
+app.use('/api', api)
 
 app.listen(config.port,function(err){
 
   if(err){
-    console.log("error");
+    console.log("Something is broken...")
   }else{
-    console.log("server listening on port "+ config.port);   
+    console.log("Express server listening closely on port "+ config.port)   
   }
 
-});
+})
 

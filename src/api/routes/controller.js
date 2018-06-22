@@ -1,18 +1,20 @@
 'use strict'
-var util = require('./service');
+const util = require('./service')
 
 module.exports = function(app,express){
     
-    var api = express.Router();
+    const api = express.Router()
   
         api.get('/movies',function(req,res){
-            var result = util.getMovies(function(err,response,data){
+            const result = util.getMovies(function(err,response,data){
+            //Parsing data to make it more readable in React
+            const parsedData = JSON.parse(data)
             if(!err){
-                res.send(data);   
+                res.send(parsedData)
             }
-            });           
-        });
+            })           
+        })
 
-    return api;
+    return api
 
 }
