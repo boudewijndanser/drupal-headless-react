@@ -8,10 +8,18 @@ const getMovies = function getMovies(cb){
     console.log('url from getMovies:', url)
     request(url, function (error, response, body) {
       cb(error,response,body) 
-    });}
+    })}
+
+const getMusic = function getMusic(cb){
+  const url = config.basepath.concat('/').concat('music')
+  console.log('url from getMusic:', url)
+  request(url, function (error, response, body) {
+    cb(error,response,body) 
+  })}
 
 const serviceObject = {
-  "getMovies": getMovies
+  "getMovies": getMovies,
+  "getMusic": getMusic
 }
 
 module.exports = serviceObject
