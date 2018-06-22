@@ -1,16 +1,16 @@
 'use strict'
 
-var request = require('request'); 
-var config = require('../config');
+const request = require('request') 
+const config = require('../config')
 
-var getMovies = function getMovies(cb){
-    var url = config.basepath.concat('/').concat('movies');
+const getMovies = function getMovies(cb){
+    const url = config.basepath.concat('/').concat('movies')
     console.log('url from getMovies:', url)
     request(url, function (error, response, body) {
-      cb(error,response,body); 
+      cb(error,response,body) 
     });}
 
-var serviceObject = {
+const serviceObject = {
   "getMovies": getMovies
 }
 
