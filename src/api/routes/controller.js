@@ -15,6 +15,16 @@ module.exports = function(app,express){
             })           
         })
 
+        api.get('/music',function(req,res){
+            const result = util.getMusic(function(err,response,data){
+            //Parsing data to make it more readable in React
+            const parsedData = JSON.parse(data)
+            if(!err){
+                res.send(parsedData)
+            }
+            })           
+        })
+
     return api
 
 }
