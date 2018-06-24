@@ -25,6 +25,17 @@ module.exports = function(app,express){
             })           
         })
 
+        api.get('/music/:id',function(req,res){
+            const paramId = req.params.id
+            const result = util.getMusicDetail(paramId,function(err,response,data){
+            //Parsing data to make it more readable in React
+            const parsedData = JSON.parse(data)
+            if(!err){
+                res.send(parsedData)
+            }
+            })           
+        })
+
     return api
 
 }
