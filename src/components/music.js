@@ -12,7 +12,7 @@ class musicApi extends React.Component {
       music: null
     }
   }
-  getmusic = (dispatchData) => {
+  getMusic = (dispatchData) => {
     request
     .get(`${baseUrl}/music`)
     .then(response => dispatchData(response.body))
@@ -24,24 +24,24 @@ class musicApi extends React.Component {
       loading: false,
       music: data
     })
-    console.log('state after new data: ',this.state)
   }
   
   componentDidMount() {
     if (this.state.music === null) {
-      this.getmusic(this.dispatchData)
-      console.log('Getting music from API')}
+      this.getMusic(this.dispatchData)
+      }
     }
 
   render() {
     if (this.state.music === null) return null
+    const { history } = this.props
     
     return (
       <div>
-        <h1>music</h1>
+        <h1>Music</h1>
           <LoadingText busy={this.state.loading} />
           <div>
-            {this.state.music && this.state.music.map(musicData => <MusicCard key={musicData.id} {...musicData}/>)}
+            {this.state.music && this.state.music.map(musicData => <MusicCard key={musicData.id} history={history} {...musicData}/>)}
           </div>   
       </div>
     )

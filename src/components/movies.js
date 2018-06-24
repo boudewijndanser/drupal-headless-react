@@ -13,7 +13,6 @@ class MoviesApi extends React.Component {
     }
   }
   getMovies = (dispatchData) => {
-    // console.log('getMovies function...')
     request
     .get(`${baseUrl}/movies`)
     .then(response => dispatchData(response.body))
@@ -25,25 +24,25 @@ class MoviesApi extends React.Component {
       loading: false,
       movies: data
     })
-    console.log('state after new data: ',this.state)
   }
   
   componentDidMount() {
     if (this.state.movies === null) {
       this.getMovies(this.dispatchData)
-      console.log('Getting movies from API')}
+      }
     }
 
   render() {
     if (this.state.movies === null) return null
-    // const { movies } = this.state
     
+    // Destructuring the info from Express for easy reference.
+    const { movies } = this.state
     return (
       <div>
         <h1>Movies</h1>
           <LoadingText busy={this.state.loading} />
           <div>
-            {this.state.movies && this.state.movies.map(movieData => <MovieCard key={movieData.id} {...movieData}/>)}
+            { movies && movies.map(movieData => <MovieCard key={movieData.id} {...movieData}/>)}
           </div>   
       </div>
     )

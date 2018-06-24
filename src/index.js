@@ -13,6 +13,7 @@ import Footer from './components/footer'
 import Home from './components/home'
 import Movies from './components/movies'
 import Music from './components/music'
+import MusicDetail from './components/musicDetail'
 import NotFound from './components/notFound'
 
 ReactDOM.render(
@@ -25,7 +26,8 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={ Home } />
           <Route path="/movies" component={ Movies } />
-          <Route path="/music" component={ Music } />
+          <Route exact path="/music" component={ Music } />
+          <Route path="/music/:id" component={ MusicDetail } />
           <Route component={ NotFound } />
         </Switch>
       </div>
