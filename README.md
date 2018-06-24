@@ -5,6 +5,7 @@
 ## Contents
 - [Description](#Description)
 - [Run this project](#To-run-this-project)
+- [Todo](#Todo)
 
 ### Description
 I made this for a job interview at Hoppinger. <br/> They asked me to:
@@ -35,3 +36,12 @@ You need to have [Drupal 8](https://github.com/hoppinger/mojito) running with th
 * Get the dependencies with `yarn`
 * Run `nodemon index.js` in src/api
 * Run 'yarn start`
+
+### Todo
+
+If there was more time:
+* More CSS styling, maybe SASS
+* Make it responsive
+* Write tests (More/ sooner)
+* Combine/ re-use functions like getMusic / getMovies / dispatchData
+* Find out how to get the img url from Drupal without HTML in it
