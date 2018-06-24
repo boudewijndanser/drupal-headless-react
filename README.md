@@ -9,13 +9,14 @@
 ### Description
 I made this for a job interview at Hoppinger. <br/> They asked me to:
 
-* install a headless Drupal with two types of related content
+* Setup a headless Drupal with two types of related content
+* Configure the Drupal API export settings
 * Build REST API to Get data from the database with the Drupal content
 * Build a front-end with React to display the content
 
 ### To run this project
 #### Drupal
-You need to have [Drupal 8](https://github.com/hoppinger/mojito) running with the folling config and data
+You need to have [Drupal 8](https://github.com/hoppinger/mojito) running with the following config and data
 * config
 * Data
 
