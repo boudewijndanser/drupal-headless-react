@@ -22,5 +22,16 @@ You need to have [Drupal 8](https://github.com/hoppinger/mojito) running with th
 
 #### React / Express
 * Clone the repo
+* Edit the urls in 
+  ```
+  src/
+  constants.js
+  ```
+* And in 
+  ```
+  src/api/
+  config.js
+  ```
 * Get the dependencies with `yarn`
+* Run `nodemon index.js` in src/api
 * Run 'yarn start`
