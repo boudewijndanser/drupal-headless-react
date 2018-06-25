@@ -18,7 +18,7 @@ I made this for a job interview at Hoppinger. <br/> They asked me to:
 ### To run this project
 #### Drupal
 You need to have [Drupal 8](https://github.com/hoppinger/mojito) running with the following config and data
-* config
+* [config](https://github.com/boudewijndanser/drupal-headless-react/blob/master/drupal-config.tar.gz?raw=true)
 * Data
 
 #### React / Express
