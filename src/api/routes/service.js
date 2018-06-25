@@ -16,10 +16,11 @@ const getMusic = function getMusic(cb){
 
 const getMusicDetail = function getMusic(paramId,cb){
   const url = config.basepath.concat('/').concat('music/').concat(paramId)
+  console.log('url: ', url)
   request(url, function (error, response, body) {
     cb(error,response,body) 
   })}
-
+//promise later?
 const serviceObject = {
   "getMovies": getMovies,
   "getMusic": getMusic,
