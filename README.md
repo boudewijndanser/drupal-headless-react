@@ -17,21 +17,15 @@ I made this for a job interview at Hoppinger. <br/> They asked me to:
 
 ### To run this project
 #### Drupal
-You need to have [Drupal 8](https://github.com/hoppinger/mojito) running with the following config and data
-* [config](https://github.com/boudewijndanser/drupal-headless-react/blob/master/drupal-config.tar.gz?raw=true)
-* Data
+For extra easy testing I installed a Drupal 8 CMS on my server, now there is no need to install Drupal yourself. 
+* View my (local) [config](https://github.com/boudewijndanser/drupal-headless-react/blob/master/drupal-config.tar.gz?raw=true) file
 
 #### React / Express
 * Clone the repo
-* Edit the urls in 
+* Edit the Express url 
   ```
   src/
   constants.js
-  ```
-* And in 
-  ```
-  src/api/
-  config.js
   ```
 * Get the dependencies with `yarn`
 * Run `nodemon index.js` in src/api
@@ -45,3 +39,4 @@ If there was more time:
 * Write tests (More/ sooner)
 * Combine/ re-use functions like getMusic / getMovies / dispatchData
 * Find out how to get the img url from Drupal without HTML in it
+* Promises in Express functions
