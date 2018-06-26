@@ -2,7 +2,8 @@ import * as React from 'react'
 import * as request from 'superagent'
 import { baseUrl } from '../constants'
 import MovieCard from './movieCard'
-import LoadingText from './loader'
+
+import '../css/movies.css'
 
 class MoviesApi extends React.Component {
   constructor(props) {
@@ -40,8 +41,7 @@ class MoviesApi extends React.Component {
     return (
       <div>
         <h1>Movies</h1>
-          <LoadingText busy={this.state.loading} />
-          <div>
+          <div className="movieCards">
             { movies && movies.map(movieData => <MovieCard key={movieData.id} {...movieData}/>)}
           </div>   
       </div>

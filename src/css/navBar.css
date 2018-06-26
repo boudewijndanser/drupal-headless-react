@@ -1,10 +1,9 @@
-
+@import url('https://fonts.googleapis.com/css?family=Cabin|Roboto+Condensed:400,700');
 
 .navBar {
-  height: 84px;
-  width: 90%;
-  align-items: center;
-  padding: 0 20px;
+  height: 72px;
+  display: flex;
+  margin: 0px;
 }
 
 ul {
@@ -12,6 +11,34 @@ ul {
   list-style: none;
 }
 
-ul li:hover{
+.hoppinger {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+github {
+  margin-right: 2px;
+}
+
+li {
+  padding: 24px;
+  text-align: center;
+  font-size: 1.1em;
+  flex: 1;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+  color: #F0F0F0;
+}
+
+a:link, a:visited {
+  color: #1E1F20;
+  padding: 14px 25px;
+  text-align: center; 
+  text-decoration: none;
+  display: flex 1;
+}
+
+a:hover, a:active {
   color:#42DC3D;
 }

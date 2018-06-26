@@ -2,7 +2,8 @@ import * as React from 'react'
 import * as request from 'superagent'
 import { baseUrl } from '../constants'
 import MusicCard from './musicCard'
-import LoadingText from './loader'
+
+import '../css/music.css'
 
 class musicApi extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class musicApi extends React.Component {
       music: null
     }
   }
+
   getMusic = (dispatchData) => {
     request
     .get(`${baseUrl}/music`)
@@ -34,14 +36,15 @@ class musicApi extends React.Component {
 
   render() {
     if (this.state.music === null) return null
+
     const { history } = this.props
+    const { music } = this.state
     
     return (
       <div>
         <h1>Music</h1>
-          <LoadingText busy={this.state.loading} />
-          <div>
-            {this.state.music && this.state.music.map(musicData => <MusicCard key={musicData.id} history={history} {...musicData}/>)}
+          <div className="musicCards">
+            {music && music.map(musicData => <MusicCard key={musicData.id} history={history} {...musicData}/>)}
           </div>   
       </div>
     )

@@ -12,18 +12,17 @@ body {
 
 .nav {
   background-color: #ffffff;
-  display: block;
+  
 }
 
 .content {
   background-color: #F0F0F0;
-  /* flex: 1 0 0; */
-  margin: 0 50px;
   padding: 0 35px;
+  min-height: 100vh;
 }
 
 .footer {
   background-color: #1E1F20;
   height: 30px;
-  padding: 0 10px;
+  padding: 0px;
 }

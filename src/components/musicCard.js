@@ -1,5 +1,6 @@
 import React from 'react'
-import '../css/movieCard.css'
+
+import '../css/music.css'
 
 class MusicCard extends React.Component {
   
@@ -15,6 +16,3 @@ class MusicCard extends React.Component {
 }
    
 export default MusicCard
-
-
-

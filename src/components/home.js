@@ -1,13 +1,13 @@
 import * as React from 'react'
 
+import '../css/index.css'
+
 class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        <header className="header">
           <h1>Home</h1>
-        </header>
-    
+          <p>Browse some movies and music here!</p>
       </div>
     )
   }

@@ -1,9 +1,8 @@
 import * as React from 'react'
 import * as request from 'superagent'
 import { baseUrl } from '../constants'
-import LoadingText from './loader'
 
-import '../css/musicDetail.css'
+import '../css/music.css'
 
 class MusicDetail extends React.Component {
   constructor(props) {
@@ -11,32 +10,27 @@ class MusicDetail extends React.Component {
     this.state = {
       loading: false,
       music: null,
-      deeplink: ''
+      deeplink: this.props.match.params.id
     }
   }
-  getmusic = (dispatchData) => {
+ 
+  getMusicDetail = (dispatchData) => {
     request
     .get(`${baseUrl}/music/${this.state.deeplink}`)
-    .then(response => dispatchData(response.body))
+    .then(response => dispatchData(response.body[0]))
     .catch(err => alert(err))
   }
 
   dispatchData = (data) => {
     this.setState({
       loading: false,
-      music: data
+      music: data 
     })
   }
-  
-  componentWillMount() {
-    if (this.props.match.params.id) {
-        this.setState({deeplink: this.props.match.params.id })
-        }
-    }
 
   componentDidMount() {
     if (this.state.deeplink && this.state.music === null) {
-        this.getmusic(this.dispatchData)
+        this.getMusicDetail(this.dispatchData)
         }
     }
 
@@ -44,18 +38,18 @@ class MusicDetail extends React.Component {
     if (this.state.music === null) return null
     
     // Destructuring the info from Express for easy reference.
-    const { title, artist, coverUrl, year, bodyText } = this.state.music[0]
+    const { title, artist, coverUrl, year, bodyText } = this.state.music 
+
     return (
       <div>
-        <h1>Music/{artist}</h1>
-          <LoadingText busy={this.state.loading} />
+        <h1>Music</h1>
           <div className="musicDetail">
-            <div>
+            <div className="coverHolder">
               <img src= {coverUrl} alt={title}/>
             </div>
-            <div>
-              <h2 className="musicTitle">{title}</h2>
-              <h3>{artist}</h3>
+            <div className="albumDetails">
+              <h2 className="artist">{artist}</h2>
+              <h3 className="musicTitle">{title}</h3>
               <h4>{year}</h4>
               <div className="musicText">
                 <p>{bodyText}</p>

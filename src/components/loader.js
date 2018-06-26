@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/loader.css'
+import '../css/typography.css'
 
 export const LoadingText = props => {
     if (!props.busy) {
