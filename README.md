@@ -7,6 +7,8 @@
 - [Run this project](#to-run-this-project)
 - [Wishlist](#wishlist)
 
+![What it looks like...](https://github.com/boudewijndanser/drupal-headless-react/blob/master/public/img/hoppinger-screenshots.png)
+
 ### Description
 I made this for a job interview at Hoppinger. <br/> They asked me to:
 
@@ -22,21 +24,23 @@ For extra easy testing I installed a Drupal 8 CMS on my server, now there is no 
 
 #### React / Express
 * Clone the repo
+* Get the dependencies with `yarn`
+* Run `nodemon index.js` in src/api
 * Edit the Express url 
   ```
   src/
   constants.js
   ```
-* Get the dependencies with `yarn`
-* Run `nodemon index.js` in src/api
 * Run 'yarn start`
 
 ### Wishlist
 
-If there was more time:
+If there was more time | a time machine:
 * More CSS styling, maybe SASS
 * Make it responsive
 * Write tests (More/ sooner)
 * Combine/ re-use functions like getMusic / getMovies / dispatchData
 * Find out how to get the img url from Drupal without HTML in it
 * Promises in Express functions
+
+Thanks Abbas and Rein for your awesome tips!
