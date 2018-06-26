@@ -4,13 +4,14 @@ import '../css/navBar.css'
 
 const NavBar = () => {
     return (
-        <div className="navBar" >
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/movies">Movies</Link></li>
-          <li><Link to="/music">Music</Link></li>
+        
+        <ul className="navBar">
+          <li className="buttons"><Link to="/movies">Movies</Link></li>
+          <li ><Link to="/music">Music</Link></li>
+          <li ><Link to="/"><img className="hoppinger" src="/img/hoppinger.svg" alt="Hoppinger logo / home"height="25px"/></Link></li>
+          <li ><a href="https://github.com/boudewijndanser/drupal-headless-react"><img className="github" src="/img/github.svg" alt="Github Repo" width="32px"/></a></li>
         </ul>
-        </div>
+        
     )
 }
 

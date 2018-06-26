@@ -1,5 +1,6 @@
 import React from 'react'
-import '../css/movieCard.css'
+
+import '../css/movies.css'
 
 export const MovieCard = props => (
    

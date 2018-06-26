@@ -1,0 +1,16 @@
+
+.movieCard {
+    width: 250px;
+    background-color: white;
+    padding: 15px;
+    margin: 20px;
+}
+
+.movieCards {
+    display: grid;
+    grid-gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-template-rows: repeat(2, 700px);
+}
+
+  
