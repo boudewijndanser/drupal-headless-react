@@ -35,7 +35,7 @@ For extra easy testing I installed a Drupal 8 CMS on my server, now there is no 
 
 ### Wishlist
 
-If there was more time | a time machine:
+If there was more time / a time machine:
 * More CSS styling, maybe SASS
 * Make it responsive
 * Write tests (More/ sooner)
@@ -43,4 +43,4 @@ If there was more time | a time machine:
 * Find out how to get the img url from Drupal without HTML in it
 * Promises in Express functions
 
-Thanks Abbas and Rein for your awesome tips!
+> Thanks Abbas and Rein for your awesome tips!
