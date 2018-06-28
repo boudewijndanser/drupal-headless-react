@@ -42,5 +42,7 @@ If there was more time / a time machine:
 * Combine/ re-use functions like getMusic / getMovies / dispatchData
 * Find out how to get the img url from Drupal without HTML in it
 * Promises in Express functions
+* Send statuscodes with requests / response
+* Lift up state so I don't have to load the data again when loading music details
 
 > Thanks Abbas and Rein for your awesome tips!
